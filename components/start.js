@@ -17,6 +17,7 @@ const start = ({ navigation }) => {
       <TouchableOpacity>
         <Text>Opacity</Text>
       </TouchableOpacity>
+      <Text>{text}</Text>
     </View>
   );
 };
