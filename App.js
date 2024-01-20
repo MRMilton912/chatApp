@@ -13,14 +13,14 @@ const App = () => {
     apiKey: "AIzaSyAf0HsBHn2ZU1OOtwq1pfv6CFtLTy01Sww",
     authDomain: "meet-app-403718.firebaseapp.com",
     projectId: "meet-app-403718",
-    storageBucket: "meet-app-403718.appspot.com",
+    storageBucket: "meet-app-403718.appspot.com", //chatApp
     messagingSenderId: "11560537116",
     appId: "1:11560537116:web:2e131591537d14b58423d9",
     measurementId: "G-LL8H8JXL54",
   };
 
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  //const analytics = getAnalytics(app);
 
   //const app = initializeApp(firebaseConfig);
 
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
   },
   textInput: {
     width: "88%",

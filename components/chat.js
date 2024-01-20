@@ -1,6 +1,13 @@
-import { StyleSheet, View, Text, Button, Platform } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Platform,
+  onPress,
+} from "react-native";
 import { useState, useEffect } from "react";
-import { GiftedChat, Bubble } from "react-native-gifted-chat";
+import { GiftedChat, Bubble, TouchableOpacity } from "react-native-gifted-chat";
 
 const chat = () => {
   const [messages, setMessages] = useState([]);
