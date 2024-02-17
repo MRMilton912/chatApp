@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import start from "./components/start";
-import chat from "./components/chat";
+import Start from "./components/Start";
+import Chat from "./components/Chat";
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore"; //getDocs, collections
 
 const Stack = createNativeStackNavigator();
+
+//useEffect(() => {}, [`${lists}`]);
 
 const App = () => {
   const firebaseConfig = {
@@ -22,15 +24,14 @@ const App = () => {
   const app = initializeApp(firebaseConfig);
   //const analytics = getAnalytics(app);
 
-  //const app = initializeApp(firebaseConfig);
-
-  const db = getFirestore(app);
+  //  const db = getFirestore(app); //chat, FlatList
 
   return (
+    //{props => <Chat db={db} {...props} />}
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="start">
-        <Stack.Screen name="start" component={start} />
-        <Stack.Screen name="chat" component={chat} />
+      <Stack.Navigator initialRouteName="Start">
+        <Stack.Screen name="Start" component={Start} />
+        <Stack.Screen name="Chat" component={Chat} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,13 +4,15 @@ import {
   Text,
   Button,
   Platform,
-  onPress,
+  KeyboardAvoidingView,
+  onPress, //onPress
 } from "react-native";
 import { useState, useEffect } from "react";
-import { GiftedChat, Bubble, TouchableOpacity } from "react-native-gifted-chat";
+import { GiftedChat, Bubble } from "react-native-gifted-chat";
 
-const chat = () => {
+const Chat = ({ route, navigation }) => {
   const [messages, setMessages] = useState([]);
+  const { name, selectedColor } = route.params;
 
   const onSend = (newMessages) => {
     setMessages((previousMessages) =>
@@ -35,6 +37,10 @@ const chat = () => {
   };
 
   useEffect(() => {
+    navigation.setOptions({ title: name }); //useState
+  });
+
+  useEffect(() => {
     setMessages([
       {
         _id: 1,
@@ -56,13 +62,13 @@ const chat = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: selectedColor }]}>
       <Text>Hello!</Text>
       <Button
         title="Go to Start"
-        onPress={() => navigation.navigate("start")}
+        onPress={() => navigation.navigate("Start")}
       />
-      <Text>Chat</Text>
+
       <GiftedChat
         messages={messages}
         renderBubble={renderBubble}
@@ -71,15 +77,6 @@ const chat = () => {
           _id: 1,
         }}
       />
-      <TouchableOpacity
-        accessible={true}
-        accessibilityLabel="More options"
-        accessibilityHint="Lets you choose to send an image or your geolocation."
-        accessibilityRole="button"
-        onPress={onPress}
-      >
-        <View style={styles.button}>...</View>
-      </TouchableOpacity>
       {Platform.OS === "android" ? (
         <KeyboardAvoidingView behavior="height" />
       ) : null}
@@ -91,11 +88,11 @@ const chat = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  //  container: {
+  //    flex: 1,
+  //    justifyContent: "center",
+  //    alignItems: "center",
+  // },
 });
 
-export default chat;
+export default Chat;
