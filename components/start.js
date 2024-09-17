@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     marginTop: -10,
     marginBottom: 10,
     opacity: 0.5,
+    backgroundColor: "#fff",
   },
   colorButtonsContainer: {
     flexDirection: "row",

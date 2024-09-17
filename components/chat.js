@@ -68,31 +68,34 @@ const Chat = ({ route, navigation }) => {
         title="Go to Start"
         onPress={() => navigation.navigate("Start")}
       />
-
-      <GiftedChat
-        messages={messages}
-        renderBubble={renderBubble}
-        onSend={(messages) => onSend(messages)}
-        user={{
-          _id: 1,
-        }}
-      />
-      {Platform.OS === "android" ? (
-        <KeyboardAvoidingView behavior="height" />
-      ) : null}
-      {Platform.OS === "ios" ? (
-        <KeyboardAvoidingView behavior="padding" />
-      ) : null}
+      <View style={{ flexGrow: 1, alignItems: "stretch" }}>
+        <GiftedChat
+          messages={messages}
+          renderBubble={renderBubble}
+          onSend={(messages) => onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+        />
+        {Platform.OS === "android" ? (
+          <KeyboardAvoidingView behavior="height" />
+        ) : (
+          <KeyboardAvoidingView behavior="height" />
+        )}
+        {Platform.OS === "ios" ? (
+          <KeyboardAvoidingView behavior="padding" />
+        ) : null}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  //  container: {
-  //    flex: 1,
-  //    justifyContent: "center",
-  //    alignItems: "center",
-  // },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default Chat;

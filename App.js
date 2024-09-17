@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Start from "./components/Start";
-import Chat from "./components/Chat";
+import Start from "./components/start";
+import Chat from "./components/chat";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"; //getDocs, collections
 
